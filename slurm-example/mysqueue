@@ -1,0 +1,7 @@
+#!/bin/sh
+
+squeue | awk '
+	BEGIN { line = 0;}
+	/'${USER}'/ { print $0; }
+	{ if (line == 0) print $0; line++; }
+	'

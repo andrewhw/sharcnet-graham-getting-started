@@ -1,0 +1,100 @@
+#!/bin/sh
+
+ENVDIR=""
+
+# If an argument is given, it is the name of the environment directory to use,
+# otherwise set the environment directory to a standard name
+if [ $# -gt 0 ] ; then
+	ENVDIR="$1"
+else
+	ENVDIR=/home/${USER}/TF-CIS6060-environment
+fi
+
+SHARCUSER="def-${USER}"
+
+echo "Running setup for user ${USER}. Assuming SHARCNET userid 'def-${USER}'"
+
+
+# If the environment directory exists from a previous run, then remove it
+# and start over
+if [ -d "${ENVDIR}" ]
+then
+	echo ""
+	echo "INFO: Removing old workspace in ${ENVDIR}"
+	echo ""
+	rm -rf "${ENVDIR}"
+fi
+
+echo ""
+echo "INFO: Creating workspace in ${ENVDIR}"
+echo ""
+mkdir "${ENVDIR}"
+
+
+echo ""
+echo "INFO: Loading standard modules"
+echo ""
+
+# This MUST be done before anything else is done in order to load the
+# python environment for a given tool set that SHARCNET supplies.
+# Skipping this step will mean that difficult to track down errors are
+# likely in later steps
+module load StdEnv/2020
+module load python/3.8.2
+module load scipy-stack/2020b
+
+
+echo ""
+echo "INFO: Standard modules loaded.  Listing:"
+echo ""
+module list
+
+
+# Set up a virtual working environment.  This allows us to have a nice clean
+# work space that has a consistent set of python libraries and tools that=
+# wont get mixed up with any _other_ python work that we might be doing at
+# the same time.  Sharcnet requires us to set this up even if we are only
+# doing one type of work as it allows every user to have their own private
+# environment, and therefore keeps one user from stepping on another user's
+# toes if they need a special python tool installed -- any extra tools will
+# only be visible in the virtual working environment that that user set up.
+echo ""
+echo "INFO: Initializing virtual environment"
+echo ""
+virtualenv --no-download $ENVDIR
+
+
+# Now that we have created our virtual environment, turn it on and start
+# working in it.  Everything that we do from this point until we run the
+# command "deactivate" is done in this protected virtual workspace -- a
+# computer within a computer.
+#
+# Once we turn it on, our $PATH variable is modified in the new environment
+# so that we run the tools from the environment setup directory as the
+# default tool set (for python, and for any of the other dependent tools)
+#
+# We "deactivate" after we are done installing tools, but these tools are
+# available to us again after we "activate" while running a specific job
+echo ""
+echo "INFO: Activating virtual environment in order to install tools"
+echo ""
+source $ENVDIR/bin/activate
+
+echo ""
+echo "INFO: Installing tensorflow tool set"
+echo ""
+# Tell pip to upgrade itself, just to be sure that we have the latest version
+python -m pip install --no-index --upgrade pip
+
+# Tell pip to install the tensorflow tools
+python -m pip install --no-index tensorflow_gpu
+python -m pip install --no-index six
+
+# You can add in any additional tools that you need
+#pip install --no-index seaborn
+
+
+# We are done with the virtual workspace, so calling "deactivate" shuts
+# it down
+deactivate
+
