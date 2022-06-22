@@ -21,8 +21,6 @@ If (on Linux) it is not installed already, consult the tools for your distributi
 
 MacOSX ships with this installed by default.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
 ![Image of the login widget for "PuTTY"](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/images/putty.png "Putty Login Screen")
 
 #### Windows:
@@ -90,3 +88,28 @@ The name "`.`" simply refers to the "current directory".  When copying to a remo
 	scp -r myusername@graham.sharcnet.ca:workbench/A1 Assign1
 
 
+# Working on Graham
+
+Once you have logged into `graham` you can run commands.
+
+## UNIX/Linux commands
+
+Some useful commands are:
+
+* `ls` for "list files" -- this tells you what is in the current (or named) directory.  Try `ls -l` to see file sizes and permissions. Try `ls -F` to see which entries are directories (they will be listed with a `/` at the end of their names).
+* `cd` for "change directory" -- this changes what the current directory is.  Simply give the name of the directory to change to as an argument.  For example, to change into a directory called `workbench` use:
+
+	cd workbench
+
+* `mkdir` for "make directory" -- creates a new directory.  To create a directory called "workbench" use:
+
+	mkdir workbench
+
+* `joe` -- a simple editor.  To edit the file '
+
+## Running a simple example
+
+A zip file with a simple example in it is provided in the `slurm-example` subdirectory.
+
+* [Zip file download link](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/slurm-example/graham-TF-tools.zip)
+* [README.md from the zip file](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/slurm-example/README.md)
