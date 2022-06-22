@@ -21,7 +21,9 @@ If (on Linux) it is not installed already, consult the tools for your distributi
 
 MacOSX ships with this installed by default.
 
-![Image of the login widget for "PuTTY"](https://github.com/andrewhw/sharcnet-graham-getting-started/main/src/common/images/putty.png "Putty Login Screen")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+![Image of the login widget for "PuTTY"](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/images/putty.png "Putty Login Screen")
 
 #### Windows:
 You will need to download an ssh client.  By far the most popular and standard one is "PuTTY" which is available on this page: 
@@ -44,7 +46,7 @@ This will connect you to the machine `graham.sharcnet.ca` over the internet, cha
 Anything typed at this prompt is now being run on the remote machine.  If you type `exit` then the shell on the remote machine will exit, and the ssh connection will be shut down.
 
 You can check what machine you are running on with the command `hostname`.  An example session logging into "graham" from my local machine "daphne" is shown here:
-![Image of the login process](https://github.com/andrewhw/sharcnet-graham-getting-started/main/src/common/images/on-graham.png "Mac Terminal program after running ssh to log into graham")
+![Image of the login process](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/images/on-graham.png "Mac Terminal program after running ssh to log into graham")
 
 
 ### Notes
