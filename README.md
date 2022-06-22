@@ -21,7 +21,9 @@ If (on Linux) it is not installed already, consult the tools for your distributi
 
 MacOSX ships with this installed by default.
 
-![Image of the login widget for "PuTTY"](https://github.com/andrewhw/sharcnet-graham-getting-started/main/src/common/images/putty.png "Putty Login Screen")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+![Image of the login widget for "PuTTY"](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/images/putty.png "Putty Login Screen")
 
 #### Windows:
 You will need to download an ssh client.  By far the most popular and standard one is "PuTTY" which is available on this page: 
