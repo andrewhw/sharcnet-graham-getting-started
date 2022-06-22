@@ -46,7 +46,7 @@ This will connect you to the machine `graham.sharcnet.ca` over the internet, cha
 Anything typed at this prompt is now being run on the remote machine.  If you type `exit` then the shell on the remote machine will exit, and the ssh connection will be shut down.
 
 You can check what machine you are running on with the command `hostname`.  An example session logging into "graham" from my local machine "daphne" is shown here:
-![Image of the login process](https://github.com/andrewhw/sharcnet-graham-getting-started/main/src/common/images/on-graham.png "Mac Terminal program after running ssh to log into graham")
+![Image of the login process](https://github.com/andrewhw/sharcnet-graham-getting-started/blob/main/images/on-graham.png "Mac Terminal program after running ssh to log into graham")
 
 
 ### Notes
